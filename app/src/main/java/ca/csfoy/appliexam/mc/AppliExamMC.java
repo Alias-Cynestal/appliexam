@@ -25,6 +25,7 @@ public class AppliExamMC {
     public void getNextQuestion() {
         initQuestion();
         appliExamView.update();
+    }
 
     public boolean validateAnswer(String answer) {
         return this.goodAnswer == answer;

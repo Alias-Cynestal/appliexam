@@ -66,6 +66,7 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putString("question", this.txtQuestion.getText().toString());
     }
 
     @Override

@@ -22,6 +22,18 @@ public class AppliExamMC {
         this.goodAnswer = questionDTO.goodAnswers[index];
     }
 
+    public String getQuestion() {
+        return this.question;
+    }
+
+    public String[] getAnswers() {
+        return this.answers.clone();
+    }
+
+    public String getGoodAnswer() {
+        return this.goodAnswer;
+    }
+
     public void getNextQuestion() {
         initQuestion();
         appliExamView.update();

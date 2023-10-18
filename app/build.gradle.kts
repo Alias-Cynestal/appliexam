@@ -4,7 +4,7 @@ plugins {
 
 android {
     namespace = "ca.csfoy.appliexam"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "ca.csfoy.appliexam"

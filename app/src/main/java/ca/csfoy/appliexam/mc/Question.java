@@ -4,11 +4,11 @@ public class Question {
 
     private final String[] questions = {""};
     private final String[][] answersList = {{}, {}, {}, {}};
-    private final int[] goodAnswers = {};
+    private final String[] goodAnswers = {};
 
     private String question;
     private String[] answers;
-    private int goodAnswer;
+    private String goodAnswer;
 
     public Question(){
         int index = (int) (Math.random() * questions.length);
@@ -25,7 +25,7 @@ public class Question {
         return this.answers.clone();
     }
 
-    public int getGoodAnswer() {
+    public String getGoodAnswer() {
         return this.goodAnswer;
     }
 }

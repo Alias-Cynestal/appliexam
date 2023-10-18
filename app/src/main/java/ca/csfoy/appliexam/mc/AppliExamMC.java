@@ -5,10 +5,19 @@ import ca.csfoy.appliexam.view.AppliExamView;
 public class AppliExamMC {
 
     private AppliExamView appliExamView;
-
-
+    private Question question;
 
     public AppliExamMC(AppliExamView appliExamView){
         this.appliExamView = appliExamView;
+    }
+
+    public void initQuestion() {
+        this.question = new Question();
+    }
+
+
+    public void getNextQuestion() {
+        initQuestion();
+        appliExamView.update();
     }
 }

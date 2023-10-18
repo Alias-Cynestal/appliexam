@@ -54,23 +54,24 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
+        mc.setQuestion(savedInstanceState.getString("question"));
+        mc.setAnswers(savedInstanceState.getStringArray("answers"));
+        mc.setGoodAnswer(savedInstanceState.getString("goodAnswer"));
+        this.update();
     }
 
     @Override
     public void onSaveInstanceState(@NonNull Bundle outState) {
+        outState.putString("question", mc.getQuestion());
+        outState.putStringArray("answers", mc.getAnswers());
+        outState.putString("goodAnswer", mc.getGoodAnswer());
         super.onSaveInstanceState(outState);
-        outState.putString("question", this.txtQuestion.getText().toString());
     }
 
     @Override
     public void update() {
         RadioButton button;
         String[] answers = this.mc.getAnswers();
-        for(int i = 0; i < answers.length; i++) {
-            button = new RadioButton(this);
-            button.setText(answers[i]);
-            this.rg.addView(button);
-        }
         this.txtQuestion.setText(this.mc.getQuestion());
     }
 

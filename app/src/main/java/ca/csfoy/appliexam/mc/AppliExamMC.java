@@ -16,6 +16,7 @@ public class AppliExamMC {
     }
 
     public void initQuestion() {
+        this.questionDTO = new QuestionDTO();
         int index = (int) (Math.random() * questionDTO.questions.length);
         this.question = questionDTO.questions[index];
         this.answers = questionDTO.answersList[index];
@@ -39,7 +40,7 @@ public class AppliExamMC {
     }
 
     public void setAnswers(String[] answers) {
-        this.answers = answers;
+        this.answers = copyStringArray(answers);
     }
 
     public void setGoodAnswer(String goodAnswer) {
@@ -55,7 +56,7 @@ public class AppliExamMC {
         return this.goodAnswer == answer;
     }
 
-    private String[] copyStringArray(String[] array) {
+    public String[] copyStringArray(String[] array) {
         String[] copyArray = new String[array.length];
         for (int i = 0; i < array.length; i++) {
             copyArray[i] = new String(array[i]);

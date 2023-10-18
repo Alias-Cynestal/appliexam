@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -16,6 +19,9 @@ import ca.csfoy.appliexam.mc.AppliExamMC;
 
 public class MainActivity extends AppCompatActivity implements AppliExamView{
 
+    private static final String GOOD_ANSWER_MESSAGE = "Bravo! Y a peut-être encore de l'espoir avec toi!";
+    private static final String WRONG_ANSWER_MESSAGE = "Oh la la... mais quel skill issue...";
+    private RelativeLayout parent;
     private String txtQuestion;
     private RadioGroup rg;
     private Button btnSubmit;
@@ -27,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        this.parent = findViewById(R.id.parent);
         this.txtQuestion = findViewById(R.id.txtQuestion);
         this.rg = findViewById(R.id.radioGroup1);
         this.btnSubmit = findViewById(R.id.btnSubmit);
@@ -66,10 +73,22 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     }
 
     private void onSubmitAnswer() {
+        RadioButton selectedAnswer = findViewById(rg.getCheckedRadioButtonId());
+        boolean isAnswerValid = mc.validateAnswer(selectedAnswer.getText().toString());
 
+        if (isAnswerValid) {
+            this.showSnackBar(GOOD_ANSWER_MESSAGE);
+        }
+        else {
+            this.showSnackBar(WRONG_ANSWER_MESSAGE);
+        }
     }
 
     private void getToNextQuestion() {
 
+    }
+
+    private void showSnackBar(String message) {
+        Snackbar.make(parent, message, Snackbar.LENGTH_LONG).show();
     }
 }

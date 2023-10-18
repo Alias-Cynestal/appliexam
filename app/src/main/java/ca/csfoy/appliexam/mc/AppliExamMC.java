@@ -34,6 +34,18 @@ public class AppliExamMC {
         return this.goodAnswer;
     }
 
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public void setAnswers(String[] answers) {
+        this.answers = answers;
+    }
+
+    public void setGoodAnswer(String goodAnswer) {
+        this.goodAnswer = goodAnswer;
+    }
+
     public void getNextQuestion() {
         initQuestion();
         appliExamView.update();

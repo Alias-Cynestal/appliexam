@@ -15,5 +15,9 @@ public class AppliExamMC {
         this.question = new Question();
     }
 
-    
+
+    public void getNextQuestion() {
+        initQuestion();
+        appliExamView.update();
+    }
 }

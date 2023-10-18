@@ -70,6 +70,6 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     }
 
     private void getToNextQuestion() {
-
+        this.mc.getNextQuestion();
     }
 }

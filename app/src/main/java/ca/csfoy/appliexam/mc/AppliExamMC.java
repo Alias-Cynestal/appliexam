@@ -54,7 +54,7 @@ public class AppliExamMC {
     }
 
     public boolean validateAnswer(String answer) {
-        return this.goodAnswer == answer;
+        return this.goodAnswer.equals(answer);
     }
 
     public String[] copyStringArray(String[] array) {

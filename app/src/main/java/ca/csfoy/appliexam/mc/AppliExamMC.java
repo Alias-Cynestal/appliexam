@@ -23,15 +23,15 @@ public class AppliExamMC {
     }
 
     public String getQuestion() {
-        return this.question;
+        return new String (this.question);
     }
 
     public String[] getAnswers() {
-        return this.answers.clone();
+        return copyStringArray(this.answers);
     }
 
     public String getGoodAnswer() {
-        return this.goodAnswer;
+        return new String(this.goodAnswer);
     }
 
     public void setQuestion(String question) {
@@ -53,5 +53,13 @@ public class AppliExamMC {
 
     public boolean validateAnswer(String answer) {
         return this.goodAnswer == answer;
+    }
+
+    private String[] copyStringArray(String[] array) {
+        String[] copyArray = new String[array.length];
+        for (int i = 0; i < array.length; i++) {
+            copyArray[i] = new String(array[i]);
+        }
+        return copyArray;
     }
 }

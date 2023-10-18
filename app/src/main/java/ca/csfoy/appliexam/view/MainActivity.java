@@ -4,6 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -13,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import ca.csfoy.appliexam.R;
@@ -27,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     private RadioGroup rg;
     private Button btnSubmit;
     private Button btnNext;
+    private ArrayList<Button> answerButtons;
 
     private AppliExamMC mc;
     @Override
@@ -39,8 +43,10 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
         this.rg = findViewById(R.id.answers);
         this.btnSubmit = findViewById(R.id.btnSubmit);
         this.btnNext = findViewById(R.id.btnNext);
+        this.answerButtons = new ArrayList<Button>();
 
         this.mc = new AppliExamMC(this);
+        this.getToNextQuestion();
 
         this.update();
         btnSubmit.setOnClickListener((view) -> {
@@ -70,8 +76,21 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
 
     @Override
     public void update() {
+        for(Button btn: this.answerButtons){
+            rg.removeView(btn);
+        }
+        this.answerButtons = new ArrayList<Button>();
         RadioButton button;
         String[] answers = this.mc.getAnswers();
+<<<<<<< Updated upstream
+=======
+        for(int i = 0; i < answers.length; i++) {
+            button = new RadioButton(this);
+            button.setText(answers[i]);
+            this.rg.addView(button);
+            this.answerButtons.add(button);
+        }
+>>>>>>> Stashed changes
         this.txtQuestion.setText(this.mc.getQuestion());
     }
 

@@ -13,6 +13,7 @@ public class AppliExamMC {
 
     public AppliExamMC(AppliExamView appliExamView){
         this.appliExamView = appliExamView;
+        this.questionDTO = new QuestionDTO();
     }
 
     public void initQuestion() {

@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.google.android.material.snackbar.Snackbar;
 
@@ -22,7 +23,7 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
     private static final String GOOD_ANSWER_MESSAGE = "Bravo! Y a peut-être encore de l'espoir avec toi!";
     private static final String WRONG_ANSWER_MESSAGE = "Oh la la... mais quel skill issue...";
     private RelativeLayout parent;
-    private String txtQuestion;
+    private TextView txtQuestion;
     private RadioGroup rg;
     private Button btnSubmit;
     private Button btnNext;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
 
         this.parent = findViewById(R.id.parent);
         this.txtQuestion = findViewById(R.id.txtQuestion);
-        this.rg = findViewById(R.id.radioGroup1);
+        this.rg = findViewById(R.id.answers);
         this.btnSubmit = findViewById(R.id.btnSubmit);
         this.btnNext = findViewById(R.id.btnNext);
 

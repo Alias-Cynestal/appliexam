@@ -42,13 +42,6 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
 
         this.mc = new AppliExamMC(this);
 
-        RadioButton button;
-        for(int i = 0; i < 3; i++) {
-            button = new RadioButton(this);
-            button.setText("Button " + i);
-            this.rg.addView(button);
-        }
-
         this.update();
         btnSubmit.setOnClickListener((view) -> {
             this.onSubmitAnswer();
@@ -71,7 +64,14 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
 
     @Override
     public void update() {
-
+        RadioButton button;
+        String[] answers = this.mc.getAnswers();
+        for(int i = 0; i < answers.length; i++) {
+            button = new RadioButton(this);
+            button.setText(answers[i]);
+            this.rg.addView(button);
+        }
+        this.txtQuestion.setText(this.mc.getQuestion());
     }
 
     private void onSubmitAnswer() {

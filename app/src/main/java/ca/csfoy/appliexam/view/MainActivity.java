@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity implements AppliExamView{
         this.answerButtons = new ArrayList<Button>();
         RadioButton button;
         String[] answers = this.mc.getAnswers();
-        for(int i = 0; i < answers.length; i++) {
+        for (String answer : answers) {
             button = new RadioButton(this);
-            button.setText(answers[i]);
+            button.setText(answer);
             this.rg.addView(button);
             this.answerButtons.add(button);
         }
